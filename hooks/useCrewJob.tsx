@@ -79,7 +79,7 @@ export const useCrewJob = () => {
   const startpdfJob = async () => {
     // Clear previous job data
     setEvents([]);
-    setdraft();
+    setdraft([]);
     setRunning(true);
 
     try {
@@ -107,7 +107,7 @@ export const useCrewJob = () => {
   const startJobHR = async () => {
     // Clear previous job data
     setEvents([]);
-    setdraft();
+    setdraft([]);
     setRunning(true);
 
     try {

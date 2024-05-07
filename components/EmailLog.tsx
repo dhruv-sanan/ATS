@@ -3,7 +3,7 @@ import { EmailDraftInfo } from "@/hooks/useCrewJob";
 
 // This component will receive props to update events.
 type EventLogProps = {
-  email: string;
+  email: string[];
 };
 
 export const EmailLog: React.FC<EventLogProps> = ({ email }) => {
