@@ -1,3 +1,6 @@
+import { Toaster } from "@/../../../node_modules/react-hot-toast/dist/index";
+import Header from "@/components/Header";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header/>
+        <Toaster/>
+        <EdgeStoreProvider>
+              {children}
+            </EdgeStoreProvider>
+        
+        </body>
     </html>
   );
 }

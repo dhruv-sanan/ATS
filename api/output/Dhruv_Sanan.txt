@@ -1,0 +1,12 @@
+Dear Dhruv Sanan,
+
+We are delighted to inform you that you have advanced to the next stage of the selection process for the Machine Learning Engineer position at our company. Your performance and qualifications in the initial round left a lasting impression on us, and we are eager to delve deeper into your expertise.
+
+Upon reviewing your resume, I was particularly intrigued by your experience as a Generative AI Full Stack Developer at Nvision Soft. There, you developed a cutting-edge Applicant Tracking System (ATS) that significantly reduced hiring time by 60% and cut recruitment costs by 20%. Moreover, you successfully automated resume review, allowing for the processing of over 150 resumes per hour. Your application of advanced relevance techniques to shortlist the top 10% of candidates highlights your ability to construct, test, maintain, and deploy machine learning models in a production environment using up-to-date CI/CD tools.
+
+The upcoming round will consist of an in-person interview with our team. We will reach out shortly to schedule a time that suits you best. In the meantime, please take the opportunity to revisit the job description and prepare any questions you may have for us.
+
+We eagerly anticipate our forthcoming meeting and look forward to continuing our engaging conversation!
+
+Warm Regards,
+[Your Name]
