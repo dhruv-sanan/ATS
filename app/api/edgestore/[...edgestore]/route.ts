@@ -8,13 +8,14 @@ type Context = {
   userRole: "admin" | "user"
 }
 
-function createContext({ req }: CreateContextOptions): Context {
-  return{
-    userId: "123",
-    userRole: "admin"
-  }
-}
-const es = initEdgeStore.create<Context>();
+// function createContext({ req }: CreateContextOptions): Context {
+//   return{
+//     userId: "123",
+//     userRole: "admin"
+//   }
+// }
+// const es = initEdgeStore.create<Context>();
+const es = initEdgeStore.create();
 
 /**
  * This is the main router for the edgestore buckets.
@@ -34,20 +35,20 @@ const edgeStoreRouter = es.router({
     maxSize: 1024 * 1024 * 4,
   }),
   
-  myProtectedFiles: es.fileBucket({
-    maxSize: 1024 * 1024 * 4,
-  })
-  .path(({ ctx }) => [{owner: ctx.userId}])
-  .accessControl ({
-    OR: [
-      {
-        userId: {path:"owner"},
-      },
-      {
-        userRole: {eq: "admin"},
-      }
-    ]
-  }),
+  // myProtectedFiles: es.fileBucket({
+  //   maxSize: 1024 * 1024 * 4,
+  // })
+  // .path(({ ctx }) => [{owner: ctx.userId}])
+  // .accessControl ({
+  //   OR: [
+  //     {
+  //       userId: {path:"owner"},
+  //     },
+  //     {
+  //       userRole: {eq: "admin"},
+  //     }
+  //   ]
+  // }),
 });
 
 /**
@@ -60,7 +61,7 @@ export type EdgeStoreRouter = typeof edgeStoreRouter;
  */
 const handler = createEdgeStoreNextHandler({
   router: edgeStoreRouter,
-  createContext,
+  // createContext,
 });
 
 export { handler as GET, handler as POST };
