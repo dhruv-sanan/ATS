@@ -28,6 +28,5 @@ requests==2.31.0
 urllib3==2.2.1
 utils==1.0.2
 
-python == 3.11.5
 pydantic == 2.6.3
 load-dotenv == 0.1.0
