@@ -1,4 +1,4 @@
-import { Toaster } from "@/../../../node_modules/react-hot-toast/dist/index";
+import { Toaster } from "react-hot-toast";
 import Header from "@/components/Header";
 import { EdgeStoreProvider } from "@/lib/edgestore";
 import type { Metadata } from "next";
