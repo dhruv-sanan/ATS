@@ -16,7 +16,6 @@ export default function Home() {
   const [fileStates, setFileStates] = useState<FileState[]>([]);
   const { edgestore } = useEdgeStore();
   const [urls, setUrls] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   
 
   const [uploadRes, setUploadRes] = useState<
@@ -65,20 +64,6 @@ export default function Home() {
   //   )}
 
     
-  const extractText = async (url:string) => {
-    setIsLoading(true);
-
-    try {
-      const response = await axios.post('/api/extract-text', { url });
-      crewJob.setpdf_content(response.data.text);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-
   return (
     <div className="bg-white min-h-screen text-black">
       <div className="flex">
@@ -139,6 +124,9 @@ export default function Home() {
 
 function MultiImageExample() {
   const [fileStates, setFileStates] = React.useState<FileState[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const crewJob = useCrewJob();
+
   const [uploadRes, setUploadRes] = React.useState<
     {
       url: string;
@@ -146,6 +134,20 @@ function MultiImageExample() {
     }[]
   >([]);
   const { edgestore } = useEdgeStore();
+  const extractText = async (url:string) => {
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post('/api/extract-text', { url });
+      crewJob.setpdf_content(response.data.text);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
 
   function updateFileProgress(key: string, progress: FileState['progress']) {
     setFileStates((fileStates) => {
@@ -185,6 +187,7 @@ function MultiImageExample() {
                     }
                   },
                 });
+                extractText(res.url)
                 setUploadRes((uploadRes) => [
                   ...uploadRes,
                   {
