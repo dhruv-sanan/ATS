@@ -89,6 +89,12 @@ export default function Home() {
           />
           <MultiImageExample/>
           <InputSection
+            title="pdf_content"
+            placeholder="pdf_content"
+            data={crewJob.pdf_content}
+            setData={crewJob.setpdf_content}
+          />
+          <InputSection
             title="JD"
             placeholder="JD"
             data={crewJob.jd}
